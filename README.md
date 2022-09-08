@@ -29,7 +29,17 @@ This is repo contains simple [Rails API](https://guides.rubyonrails.org/api_app.
   
     $ bin/rails s # for API
     $ bin/rake sneakers:run # for worker
-    
+
+## Docker infrastructure
+There are 2 containers:
+1. Rails application
+
+    - Rails API
+    - Rails Worker 
+
+    multiple services in the same container, supervised by [s6-overlay](https://github.com/just-containers/s6-overlay):
+2. RabbitMQ service
+
 ## Credits 
 - https://github.com/jondot/sneakers
 - https://github.com/veeqo/advanced-sneakers-activejob
