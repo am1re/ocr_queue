@@ -42,6 +42,10 @@ There are 2 containers:
     multiple services in the same container, supervised by [s6-overlay](https://github.com/just-containers/s6-overlay):
 2. RabbitMQ service
 
+## Tests
+
+    $ rspec
+
 ## Credits 
 - https://github.com/jondot/sneakers
 - https://github.com/veeqo/advanced-sneakers-activejob
