@@ -12,13 +12,11 @@ RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /
 
 COPY webapi-startup.sh .
 RUN mkdir /etc/services.d/webapi
-# RUN cp /myapp/webapi-startup.sh /etc/services.d/webapi/run
 RUN ln -s /myapp/webapi-startup.sh /etc/services.d/webapi/run
 RUN chmod +x /etc/services.d/webapi/run
 
 COPY worker-startup.sh .
 RUN mkdir /etc/services.d/worker
-# RUN cp /myapp/worker-startup.sh /etc/services.d/worker/run
 RUN ln -s /myapp/worker-startup.sh /etc/services.d/worker/run
 RUN chmod +x /etc/services.d/worker/run
 
