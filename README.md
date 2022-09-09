@@ -46,6 +46,23 @@ There are 2 containers:
 
     $ rspec
 
+## Usage
+
+Make request to:
+```
+    POST localhost:3000/api/v1/media
+```
+with body like:
+```json
+{
+    "fileUrl": "https://i.stack.imgur.com/WiDpa.jpg"
+}
+```
+the result will be logged by worker:
+```
+2022-09-09T19:34:04Z p-880 t-94c INFO: [OcrProcessJob(d5ce53fb)] result => some text extracted from image
+```
+
 ## Credits 
 - https://github.com/jondot/sneakers
 - https://github.com/veeqo/advanced-sneakers-activejob
