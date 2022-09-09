@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'MediaProcess', type: :request do
+RSpec.describe 'MediaProcess endpoints', type: :request do
   describe 'POST /media' do
     context 'with valid url' do
       before do
@@ -43,4 +43,3 @@ RSpec.describe 'MediaProcess', type: :request do
     end
   end
 end
-
