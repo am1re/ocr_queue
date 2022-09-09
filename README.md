@@ -6,7 +6,7 @@ This is repo contains simple [Rails API](https://guides.rubyonrails.org/api_app.
 
     $ docker compose up -d
    
-If needed enviromental variables stored in `.env` file
+If needed environmental variables stored in `.env` file
     
 ### Without Docker:
 
