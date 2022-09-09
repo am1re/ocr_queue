@@ -1,12 +1,13 @@
 class OcrProcessJob < ApplicationJob
   queue_as :ocr_images
 
+  rescue_from OcrProcessor::OcrProcessError do |e|
+    logger.info "[OcrProcessJob(#{job_id[0, 8]})] error processing job (#{e.message})"
+  end
+
   def perform(image_url)
-    tempfile = Down.download(image_url)
-    image = RTesseract.new(tempfile.to_path)
-    result = image.to_s
+    result = OcrProcessor.process image_url
     logger.info "[OcrProcessJob(#{job_id[0, 8]})] result =>\n#{result}"
-  rescue Down::Error => e
-    logger.info "[OcrProcessJob(#{job_id[0, 8]})] error downloading file (#{e.message})"
+    result
   end
 end

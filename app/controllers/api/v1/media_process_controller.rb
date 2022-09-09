@@ -10,6 +10,7 @@ class Api::V1::MediaProcessController < ApplicationController
   def receive
     if valid_file_url? file_url_param
       OcrProcessJob.perform_later file_url_param
+      head :created
     else
       render json: { message: 'invalid fileUrl, jpg/jpeg/png are supported' }, status: :bad_request
     end
