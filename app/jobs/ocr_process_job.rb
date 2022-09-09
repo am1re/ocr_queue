@@ -4,6 +4,9 @@ class OcrProcessJob < ApplicationJob
   def perform(image_url)
     tempfile = Down.download(image_url)
     image = RTesseract.new(tempfile.to_path)
-    p image.to_s
+    result = image.to_s
+    logger.info "[OcrProcessJob(#{job_id[0, 8]})] result =>\n#{result}"
+  rescue Down::Error => e
+    logger.info "[OcrProcessJob(#{job_id[0, 8]})] error downloading file (#{e.message})"
   end
 end
